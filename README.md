@@ -52,9 +52,6 @@ for slot, transactions in listener:
     for tx in transactions:
         print(f"slot {slot}: {tx.signature}")
 
-# OR raw shreds — lowest latency, arrives before block assembly
-# for shred in listener.shreds():
-#     print(f"slot={shred.slot} index={shred.index} len={len(shred.payload)}")
 ```
 
 Run it:
@@ -80,19 +77,8 @@ ShredListener(port=8001, recv_buf=25*1024*1024, max_age=10)
 #### Methods
 
 - **Iterator protocol** -- `for slot, transactions in listener:` yields decoded transactions as they arrive.
-- `listener.shreds()` -- Generator yielding individual `ParsedShred` objects.
 - `listener.active_slots()` -- Number of slots currently being accumulated.
 - `listener.stop()` -- Closes the UDP socket.
-
-### `ParsedShred`
-
-| Field            | Type    | Description                            |
-|------------------|---------|----------------------------------------|
-| `slot`           | `int`   | Slot number                            |
-| `index`          | `int`   | Shred index within the slot            |
-| `payload`        | `bytes` | Raw shred payload (after header)       |
-| `batch_complete` | `bool`  | True if this shred ends an entry batch |
-| `last_in_slot`   | `bool`  | True if this is the last shred in slot |
 
 ### `Transaction`
 
@@ -112,7 +98,7 @@ ShredStream.com SDK detects PumpFun token creations **~499ms before they appear 
 
 <img src="https://raw.githubusercontent.com/shredstream/shredstream-sdk-python/main/assets/shredstream.com_sdk_vs_pumpfun_live_feed.gif" alt="ShredStream.com SDK vs PumpFun live feed — ~499ms advantage" width="600">
 
-> [ShredStream.com](https://shredstream.com) provides a complete, optimized PumpFun token creation detection code exclusively to Pro plan subscribers and above. Battle-tested, high-performance, ready to plug into your sniping pipeline. To get access, open a ticket on [Discord](https://discord.gg/4w2DNbTaWD) or reach out on Telegram [@shredstream](https://t.me/shredstream).
+> [ShredStream.com](https://shredstream.com) provides a complete, optimized PumpFun token creation detection code available with our monthly subscription plan. Battle-tested, high-performance, ready to plug into your sniping pipeline. To get access, open a ticket on [Discord](https://discord.gg/4w2DNbTaWD) or reach out on Telegram [@shredstream](https://t.me/shredstream).
 
 ## ⚙️ Configuration
 
@@ -144,16 +130,6 @@ for slot, txs in ShredListener(port=8001):
     for tx in txs:
         if PUMP_FUN in tx.raw:
             print(f"slot {slot}: {tx.signature}")
-```
-
-### Raw shred access
-
-```python
-from shredstream import ShredListener
-
-listener = ShredListener(port=8001)
-for shred in listener.shreds():
-    print(f"slot={shred.slot} index={shred.index} len={len(shred.payload)}")
 ```
 
 ## 🚀 Launch a Shred Stream
